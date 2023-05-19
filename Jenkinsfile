@@ -4,7 +4,7 @@ pipeline {
         stage('Build Jar') {
             agent {
                 docker {
-                    image 'maven:3-alpine'
+                    image 'openjdk:11.0.5-jre-slim-buster'
                     args '-v /root/.m2:/root/.m2'
                 }
             }
@@ -15,7 +15,7 @@ pipeline {
         stage('Build Image') {
             steps {
                 script {
-                	app = docker.build("harshvr04/selenium-docker","--platform linux/amd64")
+                	app = docker.build("harshvr04/selenium-docker")
                 }
             }
         }
