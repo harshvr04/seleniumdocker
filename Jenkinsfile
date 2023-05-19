@@ -15,7 +15,7 @@ pipeline {
         stage('Build Image') {
             steps {
                 script {
-                	app = docker.build("harshvr04/selenium-docker")
+                	app = docker.build("harshvr04/selenium-docker","--platform linux/amd64")
                 }
             }
         }
