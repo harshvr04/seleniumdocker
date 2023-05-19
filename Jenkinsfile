@@ -6,7 +6,7 @@ pipeline {
                 docker {
                     image 'openjdk:11.0.5-jre-slim-buster'
                     image 'maven'
-                    args '-v $HOME/.m2:/root/.m2'
+                    args '-v $HOME/.m2:${user.home}/.m2'
                 }
             }
             steps {
